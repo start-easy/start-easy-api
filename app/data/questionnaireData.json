@@ -1,0 +1,458 @@
+[
+    {
+        "id": "step1",
+        "title": "Investor Type",
+        "step_number": 1,
+        "type": "radio",
+        "question": "Who is setting up the business in Saudi Arabia?",
+        "description": "The nature of the investor determines whether pre-registration with the Ministry of Investment (MISA) is required, the types of business activities permitted, and whether minimum capital requirements apply. It also affects your company’s tax treatment (Zakat vs. Corporate Income Tax), Saudization obligations, and post-registration compliance steps.",
+        "options": [
+            {
+                "label": "100% GCC national shareholders",
+                "value": "gcc",
+                "description": "All shareholders are citizens of GCC countries (Saudi Arabia, UAE, Qatar, Kuwait, Bahrain, Oman), or companies fully owned by such citizens. MISA registration is not required before proceeding with company formation."
+            },
+            {
+                "label": "Foreign individual (non-GCC national)",
+                "value": "foreign_individual",
+                "description": "You are a non-GCC individual planning to set up a business in your personal capacity. You must first register with MISA before proceeding with company formation.",
+                "substep": "substep1_1"
+            },
+            {
+                "label": "Foreign company (non-GCC)",
+                "value": "foreign_company",
+                "description": "A foreign parent company (not owned by GCC nationals) is registering a branch or subsidiary in Saudi Arabia. MISA registration is required before incorporation steps can begin.",
+                "substep": "substep1_2"
+            },
+            {
+                "label": "Others / Need advice",
+                "description": "You're unsure about the structure or need help identifying the right investor category. Our team can assist you.",
+                "value": "others"
+            }
+        ],
+        "next": "step2_1",
+        "answerExtractionStrategy": "singleField"
+    },
+    {
+        "id": "substep1_1",
+        "step_number": 1.1,
+        "is_sub_step": true,
+        "parent_step_id": "step1",
+        "title": "Setup Route for Foreign Individual",
+        "question": "How are you planning to set up your business as a non-GCC foreign individual?",
+        "description": "As a non-GCC foreign national, you cannot directly register a company in your name. You must either hold a privileged residency, obtain a startup license, or use a foreign company as the investor.",
+        "type": "radio",
+        "options": [
+            {
+                "label": "Premium Residency (Premium Iqama)",
+                "description": "A special long-term residence permit that allows foreign nationals to live and do business in Saudi Arabia without a sponsor. This option gives you full control and ownership like a Saudi citizen. It involves a significant one-time or annual government fee.",
+                "value": "a"
+            },
+            {
+                "label": "Entrepreneur License",
+                "description": "A startup-friendly license from MISA designed for founders and innovators. Best suited for early-stage entrepreneurs looking to launch new ventures. The government offers reduced fees in the early years, with standard rates applying later.",
+                "value": "b"
+            },
+            {
+                "label": "Through a foreign company",
+                "description": "You can use an existing company that you own outside Saudi Arabia to act as the investor, or acquire a foreign company specifically for this purpose.",
+                "value": "c"
+            },
+            {
+                "label": "Need advice",
+                "description": "If you're unsure which route is suitable or want to explore the pros and cons of each option, we’re here to guide you.",
+                "value": "d"
+            }
+        ],
+        "next": "step2_1",
+        "answerExtractionStrategy": "singleField"
+    },
+    {
+        "id": "substep1_2",
+        "step_number": 1.1,
+        "is_sub_step": true,
+        "parent_step_id": "step1",
+        "title": "Setup Route for Foreign Company",
+        "question": "What type of registration applies to your case?",
+        "description": "You must obtain an investment registration to start your investment activity in Saudi Arabia. MISA is the authority responsible for providing all services to investors. You need to select the appropriate registration type. Each type has different government fees and defines what kind of business activities you’re allowed to carry out under that registration.",
+        "type": "radio",
+        "options": [
+            {
+                "label": "Regular investment registration",
+                "description": "The standard MISA route for established foreign companies setting up a subsidiary or branch in Saudi Arabia. Suitable for long-term commercial operations across most sectors.",
+                "value": "1"
+            },
+            {
+                "label": "Entrepreneur registration",
+                "description": "A MISA license tailored for early-stage businesses or startups, especially in tech or innovation-focused fields. This option offers reduced fees but has specific eligibility criteria — such as submitting a letter of support or proof of project approval from Saudi universities or accredited business incubators.",
+                "value": "2"
+            },
+            {
+                "label": "Regional Headquarters (RHQ)",
+                "description": "Allows multinational corporations to establish a regional HQ in Saudi Arabia to oversee Middle East operations.",
+                "value": "3"
+            },
+            {
+                "label": "Temporary registration for government contracts",
+                "description": "Used by foreign companies for executing government or semi-government contracts in Saudi Arabia. Requires a letter of award or official notification as evidence of project approval.",
+                "value": "4"
+            },
+            {
+                "label": "Others / Need advice",
+                "description": "If you're unsure which registration type fits your situation, we can help assess and guide you toward the most suitable option.",
+                "value": "5"
+            }
+        ],
+        "next": "step2_1",
+        "answerExtractionStrategy": "singleField"
+    },
+    {
+        "id": "step2_1",
+        "step_number": 2,
+        "data_linked_step": "step2_2",
+        "title": "Select Business Sector(s)",
+        "question": "Which broad sector(s) best describe your business activities?",
+        "description": "You may select one or more sectors. In the next step, you’ll choose specific activities within the selected sectors. Your selection helps determine foreign investment allowability, pre-registration requirements, minimum capital requirements, minimum Saudi participation, post-registration obligations, and specific regulatory or licensing requirements.",
+        "type": "checkbox",
+        "options": [
+            {
+                "label": "Others",
+                "value": "others"
+            },
+            {
+                "label": "Agriculture, Livestock, Forestry & Fishing",
+                "value": "agriculture-livestock-forestry-fishing"
+            },
+            {
+                "label": "Mining, Quarrying, Oil & Gas Extraction",
+                "value": "mining-quarrying-oil-gas-extraction"
+            },
+            {
+                "label": "Manufacturing, Production, Repair, Maintenance & Installation",
+                "value": "manufacturing-production-repair-maintenance-installation"
+            },
+            {
+                "label": "Electricity, Gas & Cooling: Generation, Distribution & Related Services",
+                "value": "electricity-gas-cooling-generation-distribution-related-services"
+            },
+            {
+                "label": "Water, Waste, Recycling & Environmental Services",
+                "value": "water-waste-recycling-environmental-services"
+            },
+            {
+                "label": "Construction, Fit-Out & Maintenance Services",
+                "value": "construction-fit-out-maintenance-services"
+            },
+            {
+                "label": "Wholesale, Retail, Agencies & Auto Services",
+                "value": "wholesale-retail-agencies-auto-services"
+            },
+            {
+                "label": "Transport, Logistics, Warehousing, Port & Airport Services",
+                "value": "transport-logistics-warehousing-port-airport-services"
+            },
+            {
+                "label": "Hotels, Accommodation, Restaurants & Catering",
+                "value": "hotels-accommodation-restaurants-catering"
+            },
+            {
+                "label": "Telecom, Technology, Media, Publishing & Digital Services",
+                "value": "telecom-technology-media-publishing-digital-services"
+            },
+            {
+                "label": "Banking, Finance, Investment, Insurance & FinTech Services",
+                "value": "banking-finance-investment-insurance-fintech-services"
+            },
+            {
+                "label": "Real Estate Development, Brokerage, Management & Advisory Services",
+                "value": "real-estate-development-brokerage-management-advisory-services"
+            },
+            {
+                "label": "Professional, Legal, Consulting, Engineering, Testing, R&D, and Veterinary Services",
+                "value": "professional-legal-consulting-engineering-testing-r-d-veterinary-services"
+            },
+            {
+                "label": "Administrative and Support Services, Rental, Employment, Travel, Events, Security, Cleaning, Landscaping  & Other Services",
+                "value": "rental-travel-event-facilities-support-services"
+            },
+            {
+                "label": "Public Administration Services (Municipality Services, Water Project Management & Fire and Rescue Operations)",
+                "value": "public-administration-support-services-municipality-services-water-project-management-fire-and-rescue-operations"
+            },
+            {
+                "label": "Education, Training & Learning Services",
+                "value": "education-training-learning-services"
+            },
+            {
+                "label": "Healthcare, Rehabilitation & Social Welfare Services",
+                "value": "healthcare-rehabilitation-social-welfare-services"
+            },
+            {
+                "label": "Arts, Culture, Sports & Entertainment",
+                "value": "arts-culture-sports-entertainment"
+            },
+            {
+                "label": "Laundry, Salons, Repairs, Pet Care, Events, Associations and Other services",
+                "value": "laundry-salons-repairs-pet-care-events-local-associations"
+            }
+        ],
+        "next": "step2_2",
+        "answerExtractionStrategy": "singleField"
+    },
+    {
+        "id": "step2_2",
+        "step_number": 2.2,
+        "is_sub_step": true,
+        "parent_step_id": "step2_1",
+        "title": "Select Specific Business Activities",
+        "question": "Which specific activities will your business engage in?",
+        "description": "You may select multiple activities across the sectors you selected earlier. These define your company’s license scope, regulatory approvals, capital requirements, and foreign ownership eligibility.",
+        "type": "activities",
+        "next": "step3",
+        "answerExtractionStrategy": "dynamicKeysObject"
+    },
+    {
+        "id": "step3",
+        "step_number": 3,
+        "title": "Establishment Type",
+        "type": "radio",
+        "question": "What type of establishment will you set up?",
+        "description": "Your choice of legal structure determines how your business will be registered, taxed, and allowed to operate in Saudi Arabia.",
+        "options": [
+            {
+                "label": "Limited Liability Company (LLC)",
+                "description": "This is the most popular legal form for foreign investors. It creates a new Saudi company with its own legal identity, separate from its owners even if fully foreign-owned. It offers limited liability protection and is suitable for most business models, including startups, joint ventures, and subsidiaries.",
+                "value": "llc"
+            },
+            {
+                "label": "Branch of foreign company",
+                "description": "Allows a foreign company to operate in Saudi Arabia without forming a separate limited liability company (LLC). It remains fully owned by the parent company and is limited to the parent’s business activities. Suitable for executing projects or maintaining a presence without other shareholders. Tax treatment is similar to an LLC.",
+                "value": "sole"
+            },
+            {
+                "label": "Others / Need advice",
+                "description": "There are other legal forms such as Joint Stock Companies or Limited Partnerships, which are less common for new setups. Choose this if you're unsure or need help selecting the most suitable structure.",
+                "value": "other"
+            }
+        ],
+        "next": "step4",
+        "answerExtractionStrategy": "singleField"
+    },
+    {
+        "id": "step4",
+        "step_number": 4,
+        "title": "Region",
+        "question": "Which Saudi region will your company be based in?",
+        "description": "While the legal setup process is consistent nationwide, your choice of region can impact access to skilled labor, sector-specific infrastructure, proximity to clients or projects, and local authority coordination.",
+        "type": "radio",
+        "options": [
+            {
+                "label": "Riyadh",
+                "value": "riyadh",
+                "description": "Capital city; most business activities and government offices are centered here."
+            },
+            {
+                "label": "Jeddah",
+                "value": "jeddah",
+                "description": "Major commercial hub on the Red Sea coast."
+            },
+            {
+                "label": "Dammam",
+                "value": "dammam",
+                "description": "Eastern Province industrial and oil sector center."
+            },
+            {
+                "label": "Madinah",
+                "value": "madinah",
+                "description": "Northwestern region with growing industry."
+            },
+            {
+                "label": "Makkah",
+                "value": "makkah",
+                "description": "Western region focused on religious tourism and services."
+            },
+            {
+                "label": "NEOM",
+                "value": "neom",
+                "description": "Futuristic city in northwest Saudi Arabia focused on innovation, sustainability, and global investment."
+            },
+            {
+                "label": "Red Sea",
+                "value": "red-sea",
+                "description": "Strategic Red Sea location with industrial and logistics investment zones."
+            },
+            {
+                "label": "Other / Need advice",
+                "value": "other",
+                "description": "Other regions within Saudi Arabia, or if you’re unsure which region is best. We’ll help you decide."
+            }
+        ],
+        "next": "step5",
+        "answerExtractionStrategy": "singleField"
+    },
+    {
+        "id": "step5",
+        "step_number": 5,
+        "title": "Service Selection",
+        "question": "Select the services you would like us to assist with",
+        "description": "Choose all services applicable to your setup. You can select multiple options.",
+        "type": "checkbox_with_input",
+        "options": [
+            {
+                "label": "Business setup & registration",
+                "value": "business-setup",
+                "description": "Complete setup including MISA registration, commercial registration, and onboarding on government portals."
+            },
+            {
+                "label": "Ministry/Authority approvals (for regulated activities)",
+                "value": "ministry-approvals",
+                "description": "Support in obtaining required licenses or pre-approvals from ministries such as Health, Education, Media, etc."
+            },
+            {
+                "label": "Find office space",
+                "value": "find-office",
+                "description": "Help locating office, warehouse, or commercial space based on your regulatory and operational needs."
+            },
+            {
+                "label": "Support to find Saudi national shareholder",
+                "value": "saudi-shareholder",
+                "description": "Assistance in identifying compliant Saudi shareholders or partners when required by law."
+            },
+            {
+                "label": "Advisory on Saudization quota",
+                "value": "saudization-advisory",
+                "description": "Guidance on mandatory employment quotas for Saudi nationals depending on your selected business activity."
+            },
+            {
+                "label": "Advisory on Free Zones",
+                "value": "free-zones-advisory",
+                "description": "Evaluation of benefits, costs, and eligibility for setting up in one of Saudi Arabia’s free zones."
+            },
+            {
+                "label": "Advisory on applicable taxes",
+                "value": "tax-advisory",
+                "description": "Understand your tax obligations, including VAT, Customs Duty, Zakat, Corporate Tax, Withholding Tax, and Remittance Tax."
+            },
+            {
+                "label": "Bookkeeping & accounting",
+                "value": "bookkeeping-accounting",
+                "description": "Ongoing support with bookkeeping, financial statements, and management reports."
+            },
+            {
+                "label": "PRO/Government liaison",
+                "value": "pro-support",
+                "description": "Assistance with staff visa issuance, renewals, company file updates, and related formalities."
+            },
+            {
+                "label": "Tax compliance & Zakat filing",
+                "value": "tax-compliance",
+                "description": "Ensure accurate and timely tax filings, ZATCA submissions, and Zakat computations."
+            }
+        ],
+        "extraInput": {
+            "id": "others",
+            "label": "Other services"
+        },
+        "next": "step6",
+        "answerExtractionStrategy": "singleField"
+    },
+    {
+        "id": "step6",
+        "step_number": 6,
+        "title": "Service Level Expectation",
+        "question": "What level of service do you expect?",
+        "description": "This helps us tailor the proposal to your priorities — whether it's speed, support, or budget.",
+        "type": "radio",
+        "options": [
+            {
+                "label": "Essential",
+                "value": "low",
+                "description": "Ideal if you already have clarity on your setup, need minimal advisory, and have a team that can support document preparation. We’ll handle the process with your team’s support, but timelines may be slower based on the support model."
+            },
+            {
+                "label": "Standard",
+                "value": "standard",
+                "description": "A balanced option with solid support. We’ll manage the process end-to-end, coordinate key steps, and guide your team — suitable for most clients looking for smooth execution without the premium price."
+            },
+            {
+                "label": "Premium",
+                "value": "premium",
+                "description": "Priority service with full support. Our team takes care of everything quickly and proactively. Best if you're short on time, have urgent timelines, or need hands-on assistance throughout. We keep our pricing fair — you won’t be overcharged just because you selected Premium."
+            }
+        ],
+        "next": "step7",
+        "answerExtractionStrategy": "singleField"
+    },
+    {
+        "id": "step7",
+        "step_number": 7,
+        "title": "Preferred Trade Name",
+        "question": "What trade name would you like for your company?",
+        "description": "If needed. You may reserve your company’s preferred name in before beginning the registration process.",
+        "type": "text",
+        "fields": [
+            {
+                "label": "Proposed Trade Name (English)",
+                "name": "name_en",
+                "required": true,
+                "dir": "ltr",
+                "type": "text",
+                "validation": {
+                    "min": 3,
+                    "max": 50
+                }
+            },
+            {
+                "label": "Proposed Trade Name (Arabic)",
+                "name": "name_ar",
+                "required": false,
+                "dir": "rtl",
+                "type": "text",
+                "validation": {
+                    "min": 3,
+                    "max": 50
+                }
+            }
+        ],
+        "next": "step8",
+        "answerExtractionStrategy": "inputFields"
+    },
+    {
+        "id": "step8",
+        "step_number": 8,
+        "title": "Request a Proposal",
+        "question": "Request your personalized business setup proposal",
+        "type": "summary_form",
+        "fields": [
+            {
+                "label": "Name (to be addressed in the proposal)",
+                "name": "full_name",
+                "type": "text",
+                "required": true
+            },
+            {
+                "label": "Email Address",
+                "name": "email",
+                "type": "email",
+                "required": true,
+                "validation": {
+                    "email": true
+                }
+            },
+            {
+                "label": "Phone Number",
+                "name": "phone",
+                "type": "tel",
+                "required": true
+            },
+            {
+                "label": "Special Requests or Notes",
+                "name": "note",
+                "type": "textarea",
+                "required": false
+            }
+        ],
+        "next": "submit",
+        "answerExtractionStrategy": "inputFields"
+    }
+]
