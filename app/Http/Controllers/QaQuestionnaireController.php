@@ -27,8 +27,8 @@ class QaQuestionnaireController extends Controller
             'email' => 'required|email|max:255',
             'phone' => 'required|string|max:255',
             'businessActivity' => 'nullable|string|max:1000',
-            'ownershipStructure' => 'required|string|max:255',
-            'setupType' => 'required|string|max:255',
+            'ownershipStructure' => 'nullable|string|max:255',
+            'setupType' => 'nullable|string|max:255',
         ]);
 
         $pdfLabels = [
@@ -48,13 +48,21 @@ class QaQuestionnaireController extends Controller
 
         $reshaper = new ArabicTextHelper();
 
+        // Initialize PDF array with structural fields that are always required
         $pdfData = [
             ['label' => $pdfLabels['name'], 'value' => $validated['name']],
             ['label' => $pdfLabels['email'], 'value' => $validated['email']],
             ['label' => $pdfLabels['phone'], 'value' => $validated['phone']],
-            ['label' => $pdfLabels['ownershipStructure'], 'value' => $validated['ownershipStructure']],
-            ['label' => $pdfLabels['setupType'], 'value' => $validated['setupType']],
         ];
+
+        // Safely append optional fields only if they are filled
+        if (!empty($validated['ownershipStructure'])) {
+            $pdfData[] = ['label' => $pdfLabels['ownershipStructure'], 'value' => $validated['ownershipStructure']];
+        }
+
+        if (!empty($validated['setupType'])) {
+            $pdfData[] = ['label' => $pdfLabels['setupType'], 'value' => $validated['setupType']];
+        }
 
         if (!empty($validated['businessActivity'])) {
             $pdfData[] = ['label' => $pdfLabels['businessActivity'], 'value' => $validated['businessActivity']];
